@@ -1,26 +1,23 @@
-
-import express, { Application, Request, Response } from "express";
+import express from "express";
 import cors from "cors";
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from 'openai';
+import dotenv from 'dotenv';
 
 const PORT = 8000;
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-require('dotenv').config();
+dotenv.config();
 const API_KEY = process.env.OPENAI_API_KEY;
 
-
-const configuration = new Configuration ({
+const openai = new OpenAI({
   apiKey: API_KEY,
-})
-
-const openai = new OpenAIApi(configuration);
+});
 
 app.post("/completions", async (req, res) => {
   try {
-    const completion = await openai.createChatCompletion(
+    const completion = await openai.chat.completions.create(
       {
         model: "gpt-4",
         messages: [
@@ -31,7 +28,7 @@ app.post("/completions", async (req, res) => {
         ], 
       }
     )
-    res.send(completion.data.choices[0].message);
+    res.send(completion.choices[0].message);
   } catch (error) {
     console.log(error);
     res.status(500).send("Server error");
