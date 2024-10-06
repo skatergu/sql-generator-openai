@@ -8,7 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = "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";
+require('dotenv').config();
+const API_KEY = process.env.OPENAI_API_KEY;
+
 
 const configuration = new Configuration ({
   apiKey: API_KEY,

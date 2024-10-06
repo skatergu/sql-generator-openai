@@ -28,7 +28,7 @@ const App = () => {
       <input/>
       <CodeDisplay/>
       <div className="button-container">
-        <button id="get-query">onClick={() => {getQuery}}Get Query!</button>
+        <button id="get-query">onClick={() => {getQuery ()}}Get Query!</button>
         <button id="clear-chat">Clear Chat</button>
       </div>
     </div>
