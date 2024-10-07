@@ -1,8 +1,20 @@
 import MessageDisplay from "./MessageDisplay.js";
-const MessagesDisplay = () => {
+
+interface UserMessage {
+  role: string;
+  content: string;
+}
+
+interface MessagesDisplayProps {
+  userMessages: ChatData[];
+}
+
+const MessagesDisplay = ({userMessages}) => {
   return (
     <div className="messages-display">
-      <MessageDisplay />
+      {userMessages.map((userMessage, _index) => 
+      <MessageDisplay key={_index} message={userMessage}/>
+      )}
     </div>
   );
 }
