@@ -7,21 +7,30 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "browserify-zlib": "^0.2.0",
     "cors": "^2.8.5",
+    "crypto-browserify": "^3.12.0",
     "dotenv": "^16.4.5",
+    "express": "^4.21.0",
     "openai": "^4.67.1",
+    "path-browserify": "^1.0.1",
+    "querystring-es3": "^0.2.1",
     "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "stream-browserify": "^3.0.0",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start:frontend": "react-scripts start",
-    "start:backend": "node index.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+"scripts": {
+  "start:frontend": "PORT=3000 react-app-rewired start",
+  "start:backend": "node src/index.js",
+  "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+  "build": "react-app-rewired build",
+  "test": "react-app-rewired test",
+  "eject": "react-scripts eject"
+}
+,
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -41,6 +50,8 @@
     ]
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17"
-  }
+    "@types/cors": "^2.8.17",
+    "concurrently": "^9.0.1"
+  },
+  "proxy": "http://localhost:8000"
 }

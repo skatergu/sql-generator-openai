@@ -3,7 +3,7 @@ import cors from "cors";
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors());
 app.use(express.json());
