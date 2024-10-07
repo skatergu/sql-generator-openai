@@ -10,8 +10,8 @@ This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and
 
 ## Tech Stack
 
-- **TypeScript**
-- **Node.js**: Node.js: Backend runtime for handling operations and running the server.
+- **TypeScript**: Frontend
+- **Node.js**: Backend runtime for handling operations and running the server.
 - **OpenAI npm library**: Interacts with OpenAI models to generate SQL queries from natural language.
 
 ## Getting Started
