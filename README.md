@@ -1,18 +1,17 @@
 # SQL Generator Project
 
-This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and the **OpenAI** npm library. It generates SQL queries based on natural language prompts, leveraging the power of OpenAI's language models to interpret user input and transform it into SQL code.
+This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and the **OpenAI** npm library. It generates SQL queries based on natural language prompts, using OpenAI's language models to interpret user input and transform it into SQL code.
 
 ## Features
 
 - Generate SQL queries from plain English prompts
 - Supports basic SQL commands (SELECT, INSERT, UPDATE, DELETE)
 - Handles JOINs, WHERE clauses, and more complex SQL syntax
-- User-friendly command-line interface (CLI)
 
 ## Tech Stack
 
-- **TypeScript**: For type safety and enhanced development experience.
-- **Node.js**: Backend runtime for handling operations and running the CLI.
+- **TypeScript**
+- **Node.js**: Node.js: Backend runtime for handling operations and running the server.
 - **OpenAI npm library**: Interacts with OpenAI models to generate SQL queries from natural language.
 
 ## Getting Started
