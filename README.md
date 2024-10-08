@@ -52,7 +52,7 @@ This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and
 2. Enter a prompt, such as:
 
    ```bash
-  Generate a SQL query that selects all customers from the customers table where the age is greater than 30.
+   Generate a SQL query that selects all customers from the customers table where the age is        greater than 30.
    ```
 
 3. The CLI will output the corresponding SQL query:
