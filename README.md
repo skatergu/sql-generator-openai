@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# SQL Generator Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and the **OpenAI** npm library. It generates SQL queries based on natural language prompts, using OpenAI's language models to interpret user input and transform it into SQL code.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Generate SQL queries from plain English prompts
+- Supports basic SQL commands (SELECT, INSERT, UPDATE, DELETE)
+- Handles JOINs, WHERE clauses, and more complex SQL syntax
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **TypeScript**: Frontend
+- **Node.js**: Backend runtime for handling operations and running the server.
+- **OpenAI npm library**: Interacts with OpenAI models to generate SQL queries from natural language.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+- OpenAI API Key (sign up at [OpenAI](https://beta.openai.com/signup))
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/yourusername/sql-generator-openai.git
+   cd sql-generator-openai
+   ```
+2. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
+3. Set up your OpenAI API key by creating a `.env` file with the following:
 
-### `npm run eject`
+   ```bash
+   export OPENAI_API_KEY=<your-api-key>
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Running the CLI
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Run the SQL Generator:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Enter a prompt, such as:
 
-## Learn More
+   ```bash
+   Generate a SQL query that selects all customers from the customers table where the age is        greater than 30.
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. The CLI will output the corresponding SQL query:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   SELECT * FROM customers WHERE age > 30;
+   ```
+
