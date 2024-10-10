@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import OpenAI from "openai";  // Correct way to import in the latest versions
+import OpenAI from "openai";  
 import dotenv from 'dotenv';
 
 dotenv.config();
