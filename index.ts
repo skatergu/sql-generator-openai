@@ -18,9 +18,16 @@ const openai = new OpenAI({
 });
 
 app.post("/completions", async (req, res) => {
+  console.log("Received request body:", req.body);
+  
+  if (!req.body.message) {
+    return res.status(400).json({ error: "No message provided in the request body" });
+  }
+
   try {
+    console.log("Sending request to OpenAI API...");
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "user",
@@ -28,11 +35,16 @@ app.post("/completions", async (req, res) => {
         },
       ],
     });
-
-    res.send(completion.choices[0].message.content);
+    console.log("OpenAI API response:", completion.choices[0].message);
+    res.json({ result: completion.choices[0].message.content });
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Server error");
+    console.error('OpenAI API Error:', error);
+    if (error instanceof Error) {
+      console.error('Error stack:', error.stack);
+      res.status(500).json({ error: error.message, stack: error.stack });
+    } else {
+      res.status(500).json({ error: 'An unknown error occurred' });
+    }
   }
 });
 
