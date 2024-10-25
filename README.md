@@ -44,7 +44,8 @@ This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and
 1. Run the SQL Generator:
 
    ```bash
-   npm start
+   npm runs start:backend
+   npm run start:frontend
    ```
 
 2. Enter a prompt, such as:
