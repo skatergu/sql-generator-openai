@@ -45,6 +45,14 @@ p, input {
   color: rgb(255, 189, 45);
 }
 
+.code-output {
+  margin: 20px;
+}
+
+.code-output p {
+  color: rgb(255, 189, 40);
+}
+
 .buttons {
   display: flex;
   align-items: center;

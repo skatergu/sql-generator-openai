@@ -9,12 +9,11 @@ interface MessageDisplayProps {
 
 
 
-const MessageDisplay = ({message: {role, content}}: MessageDisplayProps) => {
+const MessageDisplay = ({message}: MessageDisplayProps) => {
   return (
     <div className="message-display">
       <p id="icon">⊚</p>
-      {/* <p>{message.role}</p> */}
-      <p>{content}</p> 
+      <p>{message.content}</p> 
     </div>
   );
 }

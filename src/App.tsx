@@ -1,4 +1,3 @@
-// import { Chat } from 'openai/resources/index.mjs';
 import CodeDisplay from './components/CodeDisplay';
 import MessagesDisplay from './components/MessagesDisplay';
 import { useState } from 'react';
@@ -9,7 +8,7 @@ interface ChatData {
 }
 
 const App = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
   const [chat, setChat] = useState<ChatData[]>([]);
 
   const getQuery = async () => {
@@ -28,12 +27,17 @@ const App = () => {
       const data = await response.json();
       console.log(data);
 
-      const userMessage = {
+      const userMessage: ChatData = {
         role: "user",
         content: value
       };
 
-      setChat(oldChat => [...oldChat, data, userMessage]);
+      const assistantMessage: ChatData = {
+        role: "assistant",
+        content: data.result // Assuming `data.result` contains the SQL query
+      };
+
+      setChat(oldChat => [...oldChat, userMessage, assistantMessage]);
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +47,6 @@ const App = () => {
     setValue("");
     setChat([]);
   };
-
   const filteredUserMessages = chat.filter(message => message.role === "user");
   const latestCode = chat.filter(message => message.role === "assistant").pop();
 
