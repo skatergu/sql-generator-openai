@@ -47,14 +47,21 @@ const App = () => {
     setValue("");
     setChat([]);
   };
+
   const filteredUserMessages = chat.filter(message => message.role === "user");
   const latestCode = chat.filter(message => message.role === "assistant").pop();
 
   return (
     <div className="app">
+      {/* Title Section */}
+      <div className="title">SQL Query Generator</div>
+
+      {/* Main Interface Components */}
       <MessagesDisplay userMessages={filteredUserMessages} />
-      <input value={value} onChange={e => setValue(e.target.value)} />
+      <input value={value} onChange={e => setValue(e.target.value)} placeholder="Type your query here..." />
       <CodeDisplay text={latestCode?.content || ""} />
+      
+      {/* Button Container */}
       <div className="button-container">
         <button id="get-query" onClick={getQuery}>Get Query!</button>
         <button id="clear-chat" onClick={clearChat}>Clear Chat</button>
