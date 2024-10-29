@@ -5,8 +5,6 @@ This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and
 ## Features
 
 - Generate SQL queries from plain English prompts
-- Supports basic SQL commands (SELECT, INSERT, UPDATE, DELETE)
-- Handles JOINs, WHERE clauses, and more complex SQL syntax
 
 ## Tech Stack
 
@@ -46,7 +44,8 @@ This project is a **SQL Generator** built using **TypeScript**, **Node.js**, and
 1. Run the SQL Generator:
 
    ```bash
-   npm start
+   npm run start:backend
+   npm run start:frontend
    ```
 
 2. Enter a prompt, such as:
