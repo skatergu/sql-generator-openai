@@ -34,7 +34,7 @@ const App = () => {
 
       const assistantMessage: ChatData = {
         role: "assistant",
-        content: data.result // Assuming `data.result` contains the SQL query
+        content: data.result 
       };
 
       setChat(oldChat => [...oldChat, userMessage, assistantMessage]);
