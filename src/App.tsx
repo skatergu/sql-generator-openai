@@ -26,6 +26,7 @@ const App = () => {
       const response = await fetch("http://localhost:8000/completions", options);
       const data = await response.json();
       console.log(data);
+      
 
       const userMessage: ChatData = {
         role: "user",
@@ -38,6 +39,7 @@ const App = () => {
       };
 
       setChat(oldChat => [...oldChat, userMessage, assistantMessage]);
+      setValue("");
     } catch (error) {
       console.error(error);
     }
