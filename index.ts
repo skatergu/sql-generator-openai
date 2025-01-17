@@ -19,6 +19,9 @@ app.use(express.json());
 
 const openai = new OpenAI({ apiKey: API_KEY });
 
+// In-memory storage for query history
+const queryHistory: { message: string; result: string }[] = [];
+
 app.post("/completions", async (req: Request, res: Response) => {
   try {
     console.log("Received request body:", req.body);
@@ -45,6 +48,10 @@ app.post("/completions", async (req: Request, res: Response) => {
     }
 
     console.log("OpenAI API response:", responseContent);
+
+    // Store the query and response in history
+    queryHistory.push({ message: req.body.message, result: responseContent });
+
     res.json({ result: responseContent });
 
   } catch (error) {
@@ -55,6 +62,11 @@ app.post("/completions", async (req: Request, res: Response) => {
       res.status(500).json({ error: "An unknown error occurred." });
     }
   }
+});
+
+// Endpoint to retrieve query history
+app.get("/history", (req: Request, res: Response) => {
+  res.json({ history: queryHistory });
 });
 
 app.use((req: Request, res: Response) => {
