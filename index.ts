@@ -71,7 +71,7 @@ app.get("/history", (req: Request, res: Response) => {
 
 app.use((req: Request, res: Response) => {
   res.status(404).json({ error: "Endpoint not found." });
-});
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
