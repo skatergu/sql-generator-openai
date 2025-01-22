@@ -2,6 +2,8 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import rateLimit from 'express-rate-limit'; 
+
 
 dotenv.config();
 
@@ -18,6 +20,12 @@ app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({ apiKey: API_KEY });
+
+// Rate limiter middleware
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 100, // limit each IP to 100 requests per windowMs
+});
 
 // In-memory storage for query history
 const queryHistory: { message: string; result: string }[] = [];
