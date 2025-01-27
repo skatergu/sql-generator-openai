@@ -25,7 +25,11 @@ const openai = new OpenAI({ apiKey: API_KEY });
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 100, // limit each IP to 100 requests per windowMs
+  message: { error: "Too many requests, please try again later." }
 });
+
+// Apply rate limiter to the completions endpoint
+app.use('/completions', limiter);
 
 // In-memory storage for query history
 const queryHistory: { message: string; result: string }[] = [];
