@@ -28,7 +28,6 @@ const limiter = rateLimit({
   message: { error: "Too many requests, please try again later." }
 });
 
-// Apply rate limiter to the completions endpoint
 app.use('/completions', limiter);
 
 // In-memory storage for query history
@@ -76,8 +75,8 @@ app.post("/completions", async (req: Request, res: Response) => {
   }
 });
 
-// Endpoint to retrieve query history
 app.get("/history", (req: Request, res: Response) => {
+
   res.json({ history: queryHistory });
 });
 
